@@ -7,6 +7,7 @@
 // Relay is connected to D2/GPIO4
 #define RELAY_PIN 4
 
+// These are defined in credentials.h
 const char* ssid = WIFI_SSID;
 const char* password = WIFI_PASSWD;
 const char* www_username = WWW_USERNAME;
@@ -17,6 +18,8 @@ const char* log_file_name = "/doorbot.log";
 
 BearSSL::ESP8266WebServerSecure server(443);
 
+#ifndef SSL_CREDS_H
+// Basic cert and key of self-signed cert for doorbot.local
 static const char serverCert[] PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
 MIICzzCCAbegAwIBAgIJAMPCB5ko3ZcPMA0GCSqGSIb3DQEBBQUAMBgxFjAUBgNV
@@ -67,6 +70,7 @@ jrx1xX+WUoQ1/Y9LWm5LMZmGGtCeqTHO398di1lL+R129gox9oVWrh17Q7hWRwfI
 h2Go3DPTvzFSFAZeD1ymvq8HXax71bEDsTei8iBrtGQAMGDJ0Y5v
 -----END RSA PRIVATE KEY-----
 )EOF";
+#endif
 
 void open_door() {
   // turn the RELAY on (HIGH is the voltage level)

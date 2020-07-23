@@ -6,3 +6,4 @@
 
 .DS_Store
 src/credentials.h
+src/ssl_creds.h
