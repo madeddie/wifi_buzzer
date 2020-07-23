@@ -4,6 +4,9 @@
 .vscode/launch.json
 .vscode/ipch
 
+.ccls
+.clang_complete
+.gcc-flags.json
 .DS_Store
 src/credentials.h
 src/ssl_creds.h
